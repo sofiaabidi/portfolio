@@ -43,7 +43,7 @@ export function ExperienceView() {
             <span className="font-mono text-sm font-bold uppercase tracking-widest text-brutal-orange">
               <Briefcase size={16} /> {"// experience & leadership"}
             </span>
-            <h1 className="display-serif mt-3 text-5xl font-black leading-[0.95] md:text-7xl">
+            <h1 className="display-serif mt-3 text-4xl font-black sm:text-5xl lg:text-7xl">
               Experience beyond the{" "}
               <span className="relative inline-block">
                 <span className="relative z-10">classroom</span>
@@ -66,7 +66,7 @@ export function ExperienceView() {
         <div className="mx-auto max-w-4xl">
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-4 top-0 h-full w-1 border-l-2 border-dashed border-brutal-black md:left-1/2" />
+            <div className="absolute left-4 top-0 h-full w-1 border-l-2 border-dashed border-brutal-black lg:left-1/2" />
 
             <div className="flex flex-col gap-10">
               {experiences.map((exp, i) => (
@@ -76,18 +76,18 @@ export function ExperienceView() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className={`relative pl-14 md:w-1/2 md:pl-0 ${
+                  className={`relative min-w-0 pl-14 lg:w-1/2 lg:pl-0 ${
                     i % 2 === 0
-                      ? "md:self-start md:pr-12 md:text-right"
-                      : "md:self-end md:pl-12"
+                      ? "lg:self-start lg:pr-12 lg:text-right"
+                      : "lg:self-end lg:pl-12"
                   }`}
                 >
                   {/* Node */}
                   <span
                     className={`absolute left-0 top-1 flex h-10 w-10 items-center justify-center border-2 border-brutal-black ${accentBg[exp.accent]} shadow-[3px_3px_0px_0px_#0A0A0A] ${
                       i % 2 === 0
-                        ? "md:-right-5 md:left-auto"
-                        : "md:-left-5"
+                        ? "lg:-right-5 lg:left-auto"
+                        : "lg:-left-5"
                     }`}
                   >
                     <Briefcase size={16} />
@@ -97,19 +97,19 @@ export function ExperienceView() {
                   <div
                     className={`brutal-card brutal-card-hover flex flex-col p-6 ${accentBorderLeft[exp.accent]} border-l-[6px] ${
                       i % 2 === 0
-                        ? `md:border-l-2 md:border-l-brutal-black md:border-r-[6px] ${
+                        ? `lg:border-l-2 lg:border-l-brutal-black lg:border-r-[6px] ${
                             exp.accent === "coral"
-                              ? "md:border-r-brutal-coral"
+                              ? "lg:border-r-brutal-coral"
                               : exp.accent === "yellow"
-                                ? "md:border-r-brutal-yellow"
-                                : "md:border-r-brutal-orange"
+                                ? "lg:border-r-brutal-yellow"
+                                : "lg:border-r-brutal-orange"
                           }`
                         : ""
                     }`}
                   >
                     <div
                       className={`flex flex-wrap items-center gap-2 ${
-                        i % 2 === 0 ? "md:justify-end" : ""
+                        i % 2 === 0 ? "lg:justify-end" : ""
                       }`}
                     >
                       <span className="inline-flex items-center gap-1 border-2 border-brutal-black bg-brutal-yellow-light px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider">
@@ -122,22 +122,22 @@ export function ExperienceView() {
                       )}
                     </div>
 
-                    <h3 className="display-serif mt-3 text-2xl font-black leading-tight">
+                    <h3 className="display-serif mt-3 text-2xl font-black leading-tight break-words">
                       {exp.role}
                     </h3>
-                    <p className="mt-1 font-mono text-xs uppercase tracking-wide text-brutal-orange">
+                    <p className="mt-1 font-mono text-xs uppercase tracking-wide text-brutal-orange break-words">
                       {exp.company}
                     </p>
-                    <p className="mt-1 flex items-center gap-1 font-mono text-[10px] uppercase tracking-wide text-neutral-600 md:justify-start">
+                    <p className="mt-1 flex flex-wrap items-center gap-1 font-mono text-[10px] uppercase tracking-wide text-neutral-600 lg:justify-start">
                       <MapPin size={10} /> {exp.location}
                       {i % 2 === 0 && (
-                        <span className="md:ml-auto md:mr-0" />
+                        <span className="lg:ml-auto lg:mr-0" />
                       )}
                     </p>
 
                     <p
                       className={`mt-3 text-sm leading-relaxed text-neutral-700 ${
-                        i % 2 === 0 ? "md:text-right" : ""
+                        i % 2 === 0 ? "lg:text-right" : ""
                       }`}
                     >
                       {exp.summary}
@@ -145,7 +145,7 @@ export function ExperienceView() {
 
                     <ul
                       className={`mt-4 flex flex-col gap-2 ${
-                        i % 2 === 0 ? "md:items-end" : ""
+                        i % 2 === 0 ? "lg:items-end" : ""
                       }`}
                     >
                       {exp.bullets.map((bullet) => (
@@ -153,7 +153,7 @@ export function ExperienceView() {
                           key={bullet}
                           className={`flex items-start gap-2 text-sm font-medium text-brutal-black ${
                             i % 2 === 0
-                              ? "md:flex-row-reverse md:text-right"
+                              ? "lg:flex-row-reverse lg:text-right"
                               : ""
                           }`}
                         >
@@ -161,7 +161,7 @@ export function ExperienceView() {
                             size={14}
                             className="mt-0.5 shrink-0 text-brutal-orange"
                           />
-                          <span>{bullet}</span>
+                          <span className="min-w-0 break-words">{bullet}</span>
                         </li>
                       ))}
                     </ul>
@@ -176,22 +176,22 @@ export function ExperienceView() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4 }}
-                  className="relative pl-14 md:w-1/2 md:self-end md:pl-12"
+                  className="relative min-w-0 pl-14 lg:w-1/2 lg:self-end lg:pl-12"
                 >
-                  <span className="absolute left-0 top-1 flex h-10 w-10 items-center justify-center border-2 border-brutal-black bg-brutal-mint text-brutal-black shadow-[3px_3px_0px_0px_#0A0A0A] md:-left-5">
+                  <span className="absolute left-0 top-1 flex h-10 w-10 items-center justify-center border-2 border-brutal-black bg-brutal-mint text-brutal-black shadow-[3px_3px_0px_0px_#0A0A0A] lg:-left-5">
                     <GraduationCap size={18} />
                   </span>
                   <div className="brutal-card brutal-card-hover border-l-[6px] border-l-brutal-mint p-6">
                     <span className="inline-flex items-center gap-1 border-2 border-brutal-black bg-brutal-yellow-light px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider">
                       <Calendar size={10} /> {currentEducation.period}
                     </span>
-                    <h3 className="display-serif mt-3 text-2xl font-black leading-tight">
+                    <h3 className="display-serif mt-3 text-2xl font-black leading-tight break-words">
                       {currentEducation.degree}
                     </h3>
-                    <p className="mt-1 font-mono text-xs uppercase tracking-wide text-brutal-orange">
+                    <p className="mt-1 font-mono text-xs uppercase tracking-wide text-brutal-orange break-words">
                       {currentEducation.field} · CGPA {currentEducation.cgpa}
                     </p>
-                    <p className="mt-1 font-mono text-[10px] uppercase tracking-wide text-neutral-600">
+                    <p className="mt-1 font-mono text-[10px] uppercase tracking-wide text-neutral-600 break-words">
                       {currentEducation.school} · {currentEducation.location}
                     </p>
                   </div>
@@ -205,7 +205,7 @@ export function ExperienceView() {
       {/* CTA */}
       <section className="px-4 pb-16 md:px-8 md:pb-24">
         <div className="mx-auto max-w-7xl">
-          <div className="brutal-card brutal-card-hover flex flex-col items-center gap-4 border-2 border-brutal-black bg-brutal-yellow-light p-8 text-center md:p-12">
+          <div className="brutal-card brutal-card-hover flex flex-col items-center gap-4 border-2 border-brutal-black bg-brutal-yellow-light p-6 text-center sm:p-8 md:p-12">
             <h2 className="display-serif text-3xl font-black leading-tight md:text-4xl">
               Interested in working together?
             </h2>

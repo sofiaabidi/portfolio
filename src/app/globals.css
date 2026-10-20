@@ -201,6 +201,16 @@
   -webkit-box-decoration-break: clone;
 }
 
+/* Keep keyboard navigation visible without changing pointer interactions. */
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-brutal-orange);
+  outline-offset: 3px;
+}
+
+:where(input, textarea, select):focus-visible {
+  outline-color: var(--color-brutal-black);
+}
+
 /* Native cursor assets avoid mouse-following overlays and leave touch alone. */
 @media (hover: hover) and (pointer: fine) {
   :where(html, body) {
@@ -283,6 +293,24 @@
 }
 .view-in {
   animation: view-in 0.35s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-fast,
+  .animate-marquee-slow,
+  .animate-blink,
+  .animate-wiggle,
+  .animate-float,
+  .view-in {
+    animation: none;
+  }
+
+  .brutal-card-hover,
+  .brutal-btn,
+  .brutal-input {
+    transition: none;
+  }
 }
 
 /* Custom scrollbar */
