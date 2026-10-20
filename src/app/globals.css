@@ -1,0 +1,292 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-space-mono);
+  --font-display: var(--font-playfair-display);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Brutalist palette */
+  --color-brutal-black: #0A0A0A;
+  --color-brutal-orange: #FF6B35;
+  --color-brutal-coral: #FF4D6D;
+  --color-brutal-yellow: #FFD23F;
+  --color-brutal-yellow-light: #FFF3C4;
+  --color-brutal-mint: #A8E6CF;
+  --color-brutal-lilac: #C8B6FF;
+  --color-brutal-paper: #FAF7F0;
+
+  /* Shadow tokens (brutal offset shadows) */
+  --shadow-brutal-sm: 3px 3px 0px 0px var(--color-brutal-black);
+  --shadow-brutal: 4px 4px 0px 0px var(--color-brutal-black);
+  --shadow-brutal-lg: 6px 6px 0px 0px var(--color-brutal-black);
+  --shadow-brutal-xl: 8px 8px 0px 0px var(--color-brutal-black);
+
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+}
+
+:root {
+  --radius: 0;
+  --background: #FAF7F0;
+  --foreground: #0A0A0A;
+  --card: #FFFFFF;
+  --card-foreground: #0A0A0A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0A0A0A;
+  --primary: #0A0A0A;
+  --primary-foreground: #FAF7F0;
+  --secondary: #FFF3C4;
+  --secondary-foreground: #0A0A0A;
+  --muted: #F1ECE0;
+  --muted-foreground: #6B6B6B;
+  --accent: #FF6B35;
+  --accent-foreground: #0A0A0A;
+  --destructive: #FF4D6D;
+  --border: #0A0A0A;
+  --input: #FFFFFF;
+  --ring: #FF6B35;
+}
+
+@layer base {
+  * {
+    @apply border-brutal-black;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-dm-sans), sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--color-brutal-yellow);
+    color: var(--color-brutal-black);
+  }
+}
+
+/* ============ Brutalist primitives ============ */
+@layer components {
+  .brutal-card {
+    border: 2px solid var(--color-brutal-black);
+    background: #FFFFFF;
+    box-shadow: var(--shadow-brutal);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .brutal-card-hover:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-brutal-lg);
+  }
+  .brutal-card-lg {
+    border: 3px solid var(--color-brutal-black);
+    box-shadow: var(--shadow-brutal-lg);
+  }
+  .brutal-tag {
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid var(--color-brutal-black);
+    padding: 0.25rem 0.625rem;
+    font-family: var(--font-space-mono), monospace;
+    font-weight: 600;
+    font-size: 0.75rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    box-shadow: var(--shadow-brutal-sm);
+  }
+  .brutal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 3px solid var(--color-brutal-black);
+    padding: 0.625rem 1.25rem;
+    font-family: var(--font-space-mono), monospace;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    box-shadow: var(--shadow-brutal-sm);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .brutal-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-brutal);
+  }
+  .brutal-btn:active {
+    transform: translate(0, 0);
+    box-shadow: var(--shadow-brutal-sm);
+  }
+  .brutal-input {
+    width: 100%;
+    border: 2px solid var(--color-brutal-black);
+    background: #FFFFFF;
+    padding: 0.625rem 0.875rem;
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 0.95rem;
+    color: var(--color-brutal-black);
+    box-shadow: var(--shadow-brutal-sm);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    outline: none;
+  }
+  .brutal-input:focus {
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-brutal);
+  }
+  .brutal-input::placeholder {
+    color: #9B9B9B;
+  }
+  .display-serif {
+    font-family: var(--font-playfair-display), serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+  .font-mono {
+    font-family: var(--font-space-mono), monospace;
+  }
+}
+
+/* Shared spacing for hero headings with inline neo-brutalist highlights. */
+.hero-heading,
+.view-in > section:first-child h1.display-serif {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.heading-highlight,
+.display-serif > .bg-brutal-orange:not(.absolute),
+.display-serif > .bg-brutal-yellow:not(.absolute),
+.display-serif > .bg-brutal-lilac:not(.absolute) {
+  display: inline-block;
+  padding-inline: 0.06em;
+  line-height: 1;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Native cursor assets avoid mouse-following overlays and leave touch alone. */
+@media (hover: hover) and (pointer: fine) {
+  :where(html, body) {
+    cursor: url("/cursors/pointer.svg?v=3") 5 5, auto;
+  }
+
+  :where(a[href], button, summary, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], [role="link"]):not(
+    :disabled, [aria-disabled="true"], [data-disabled], [draggable="true"]
+  ) {
+    cursor: url("/cursors/pointer-hover.svg?v=3") 5 5, pointer;
+  }
+
+  :where(a[href], button, summary, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], [role="link"]):not(
+    :disabled, [aria-disabled="true"], [data-disabled], [draggable="true"]
+  ):active {
+    cursor: url("/cursors/pointer-active.svg?v=3") 5 5, pointer;
+  }
+
+  :where(input:not([type]), input:is([type="text"], [type="email"], [type="search"], [type="url"], [type="tel"], [type="password"], [type="number"]), textarea, [contenteditable=""], [contenteditable="true"]):not(:disabled) {
+    cursor: text;
+  }
+
+  :where(:disabled, [aria-disabled="true"], [data-disabled]) {
+    cursor: not-allowed;
+  }
+}
+
+/* Keep browser and component-specific cursors for native special controls. */
+@layer base {
+  @media (hover: hover) and (pointer: fine) {
+    :where(select, input, [draggable="true"], [role="slider"], [role="separator"]) {
+      cursor: auto;
+    }
+  }
+}
+
+/* ============ Animations ============ */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+.animate-marquee-fast {
+  animation: marquee 20s linear infinite;
+}
+.animate-marquee-slow {
+  animation: marquee 45s linear infinite;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+.animate-wiggle {
+  animation: wiggle 2.5s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float-y 4s ease-in-out infinite;
+}
+
+/* View transitions */
+@keyframes view-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.view-in {
+  animation: view-in 0.35s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--color-brutal-paper); border-left: 2px solid var(--color-brutal-black); }
+::-webkit-scrollbar-thumb { background: var(--color-brutal-orange); border: 2px solid var(--color-brutal-black); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-brutal-coral); }
