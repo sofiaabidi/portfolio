@@ -15,6 +15,17 @@ Open `http://localhost:3000`. Production checks are `npx tsc --noEmit`, `npm run
 
 Copy `.env.example` to `.env.local` as needed. `NEXT_PUBLIC_SITE_URL` controls canonical URLs. Analytics and Web3Forms remain inactive unless their variables are configured. Without a Web3Forms key, the form is honestly disabled and offers a direct email link.
 
+## Deploy to Vercel
+
+Import the GitHub repository into Vercel and use the native Next.js defaults:
+
+- Production branch: `main`
+- Install command: `npm ci`
+- Build command: `npm run build`
+- Output directory: leave unset (Next.js automatic default)
+
+Set `NEXT_PUBLIC_SITE_URL` to the final production origin, including `https://`. The optional `NEXT_PUBLIC_WEB3FORMS_KEY`, `NEXT_PUBLIC_GA_MEASUREMENT_ID`, and `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` variables can be added when those services are enabled. Redeploy after changing any `NEXT_PUBLIC_` value because Next.js includes public variables in the browser bundle at build time.
+
 ## Content and assets
 
 - Résumé: `public/resume/Sofia_Abidi_Resume.pdf`

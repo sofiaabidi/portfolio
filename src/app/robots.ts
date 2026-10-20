@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { siteUrl } from "@/lib/portfolio-data";
+import { siteUrl } from "@/lib/site-url";
 
 // robots.txt — allows all crawlers, points them to the sitemap.
 // Accessible at /robots.txt.

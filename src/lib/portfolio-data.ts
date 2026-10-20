@@ -13,7 +13,6 @@ export type Post = { slug:string; title:string; excerpt:string; category:PostCat
 export type ExpertiseIcon = "brain"|"globe"|"calculator"|"chart";
 export type Expertise = { icon:ExpertiseIcon; title:string; accent:"orange"|"coral"|"yellow"|"mint"; description:string; tags:string[] };
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 export const web3formsAccessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
 export const personal = { name:"Sofia Abidi", firstName:"Sofia", role:"Computer Engineering Student · VJTI", tagline:"I build intelligent systems, full-stack products & optimization tools.", longPitch:"Third-year Computer Engineering student at VJTI working across machine learning, algorithms, optimization and full-stack software.", location:"Thane, India", email:"sofiaabidi2005@gmail.com", linkedin:"https://linkedin.com/in/sofia-abidi", github:"https://github.com/sofiaabidi", resumePath:"/resume/Sofia_Abidi_Resume.pdf", resumeName:"Sofia_Abidi_Resume.pdf" };
